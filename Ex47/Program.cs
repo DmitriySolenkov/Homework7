@@ -5,7 +5,7 @@
     {
         for (int j = 0; j < length2; j++)
         {
-            array[i, j] = Convert.ToDouble(new Random().Next(100)/10.0);
+            array[i, j] = Convert.ToDouble(new Random().Next(100) / 10.0);
         }
     }
     return array;
@@ -30,6 +30,14 @@ void PrintMatrix(double[,] matrix)
     }
 }
 
-double[,] matrix = FillMatrix(Prompt("Введите число строк: "), Prompt("Введите число колонок: "));
-PrintMatrix(matrix);
-Console.WriteLine();
+int line = Prompt("Введите число строк: ");
+int column = Prompt("Введите число колонок: ");
+if (line > 0 && column > 0)
+{
+    double[,] matrix = FillMatrix(line, column);
+    PrintMatrix(matrix);
+}
+else
+{
+    Console.WriteLine("Неверные значения!");
+}
