@@ -38,35 +38,20 @@ if (line > 0 && column > 0)
     int[,] matrix = FillMatrix(line, column);
     PrintMatrix(matrix);
     Console.WriteLine();
-double [] average= new double [matrix.GetLength(0)];
+    double[] average = new double[matrix.GetLength(0)];
 
 
-for (int k = 0; k < matrix.GetLength(0); k++)
-{
-    double sum=0;
-    for (int l = 0; l < matrix.GetLength(1); l++)
+    for (int k = 0; k < matrix.GetLength(0); k++)
     {
-        sum+= matrix[k,l];
+        double sum = 0;
+        for (int l = 0; l < matrix.GetLength(1); l++)
+        {
+            sum += matrix[k, l];
+        }
+        average[k] = Convert.ToDouble(sum / matrix.GetLength(1));
     }
-    average [k]=Convert.ToDouble(sum/matrix.GetLength(1));
-}
 
-Console.WriteLine($"Среднее арифметическое по строкам: {String.Join("; ", average)}");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Console.WriteLine($"Среднее арифметическое по строкам: {String.Join("; ", average)}");
 }
 else
 {
